@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <h1>Welcome to the App!</h1>
-    <div v-show="isLoggedIn === false">
+    <div v-if="!isLoggedIn">
       To use this app you need to
       <router-link :to="{ name: 'register' }">
         register

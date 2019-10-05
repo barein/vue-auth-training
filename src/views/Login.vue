@@ -8,7 +8,7 @@
       <input id="password" v-model="password" type="text">
 
       <button type="submit" name="button">
-        Register
+        Login
       </button>
     </form>
     <router-link to="/register">Don't have an account ? Register.</router-link>
