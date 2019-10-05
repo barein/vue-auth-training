@@ -13,5 +13,8 @@ export default {
   apiClient: apiClient,
   register (credential) {
     return apiClient.post('/register', credential)
+  },
+  login (credential) {
+    return apiClient.post('/login', credential)
   }
 }

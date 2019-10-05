@@ -6,14 +6,18 @@
     <router-link to="/dashboard">
       Dashboard
     </router-link>
-    <router-link to="/register">
-      Register
+    <router-link v-if="isLoggedIn === false" to="/login" class="button">
+      Login
     </router-link>
   </div>
 </template>
 
 <script>
-export default {}
+import { authMixin } from '../Mixins/AuthMixin'
+
+export default {
+  mixins: [authMixin]
+}
 </script>
 
 <style lang="scss" scoped>
