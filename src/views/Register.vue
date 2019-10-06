@@ -14,6 +14,11 @@
         Register
       </button>
     </form>
+
+    <ul>
+      <li v-for="(error, index) in errors"> {{ error }} </li>
+    </ul>
+
     <router-link to="/login">Already have an account ? Login.</router-link>
   </div>
 </template>
@@ -25,7 +30,8 @@ export default {
     return {
       name: '',
       email: '',
-      password: ''
+      password: '',
+      errors: []
     }
   },
   methods: {
@@ -36,6 +42,10 @@ export default {
         password: this.password
       }).then(() => {
         this.$router.push({ name: 'dashboard' });
+      }).catch(err => {
+        if (err.response.status === 400) {
+          this.errors = err.response.data;
+        }
       })
     }
   }

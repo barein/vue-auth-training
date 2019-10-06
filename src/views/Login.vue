@@ -11,6 +11,9 @@
         Login
       </button>
     </form>
+
+    <p>{{ error }}</p>
+
     <router-link to="/register">Don't have an account ? Register.</router-link>
   </div>
 </template>
@@ -21,7 +24,8 @@ export default {
   data () {
     return {
       email: '',
-      password: ''
+      password: '',
+      error: ''
     }
   },
   methods: {
@@ -31,6 +35,10 @@ export default {
         password: this.password
       }).then(() => {
         this.$router.push({ name: 'dashboard' });
+      }).catch(err => {
+        if (err.response.status === 401) {
+          this.error = 'Invalid credentials. Please try again.'
+        }
       })
     }
   }
