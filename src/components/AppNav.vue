@@ -9,9 +9,12 @@
     <router-link v-if="!isLoggedIn" to="/login" class="button">
       Login
     </router-link>
-    <button v-else type="button" class="logoutButton" @click="logout">
-      Logout
-    </button>
+    <transition name="fade">
+      <button v-if="isLoggedIn" type="button" class="logoutButton" @click="logout">
+        Logout
+      </button>
+    </transition>
+
   </div>
 </template>
 
