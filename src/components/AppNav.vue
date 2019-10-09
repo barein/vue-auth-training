@@ -3,6 +3,7 @@
     <router-link to="/">
       Home
     </router-link>
+    <router-link :to="{ name: 'fakeList' }">Fake list</router-link>
     <router-link v-if="isLoggedIn" to="/dashboard">
       Dashboard
     </router-link>

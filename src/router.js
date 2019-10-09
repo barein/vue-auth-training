@@ -4,6 +4,7 @@ import Home from './views/Home.vue'
 import Dashboard from './views/Dashboard.vue'
 import Register from "./views/Register";
 import Login from "./views/Login";
+import FakeList from "./views/FakeList";
 
 Vue.use(Router)
 
@@ -31,6 +32,11 @@ const router = new Router({
       path: '/login',
       name: 'login',
       component: Login
+    },
+    {
+      path: '/fakeList',
+      name: 'fakeList',
+      component: FakeList
     }
   ]
 })
